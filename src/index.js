@@ -4,6 +4,7 @@
 
 import EvStore from 'ev-store'
 import compose from 'compose-function'
+import ProxyEvent from './proxy-event'
 
  /**
   * Events
@@ -39,7 +40,9 @@ function delegant (rootNode, fn = v => v) {
     const handler = es[name]
 
     if (handler) {
-      fn(handler(e))
+      const event = new ProxyEvent(e)
+      event.currentTarget = target
+      fn(handler(event))
     }
 
     if (target.parentNode && target.parentNode !== rootNode) {
