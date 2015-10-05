@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "compose-function": "^2.0.0",
-    "ev-store": "^7.0.0"
+    "ev-store": "^7.0.0",
+    "inherits": "^2.0.1"
   },
   "devDependencies": {
     "babel": "^5.8.21",
