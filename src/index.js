@@ -43,6 +43,9 @@ function delegant (rootNode, fn = v => v) {
       const event = new ProxyEvent(e)
       event.currentTarget = target
       fn(handler(event))
+      if (event._stopPropagation || event._stopImmediatePropagation) {
+        return
+      }
     }
 
     if (target.parentNode && target.parentNode !== rootNode) {

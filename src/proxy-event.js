@@ -49,8 +49,12 @@ ProxyEvent.prototype.startPropagation = function () {
     this._bubbles = true
 }
 
+ProxyEvent.prototype.stopPropagation = function () {
+    this._stopPropagation = true
+}
+
 ProxyEvent.prototype.stopImmediatePropagation = function () {
-    this._rawEvent.stopImmediatePropagation()
+    this._stopImmediatePropagation = true
 }
 
 function MouseEvent(ev) {
