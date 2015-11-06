@@ -38,7 +38,7 @@ function ProxyEvent(ev) {
     }
 
     this._rawEvent = ev
-    this._bubbles = false;
+    this._bubbles = false
 }
 
 ProxyEvent.prototype.preventDefault = function () {
@@ -46,7 +46,11 @@ ProxyEvent.prototype.preventDefault = function () {
 }
 
 ProxyEvent.prototype.startPropagation = function () {
-    this._bubbles = true;
+    this._bubbles = true
+}
+
+ProxyEvent.prototype.stopImmediatePropagation = function () {
+    this._rawEvent.stopImmediatePropagation()
 }
 
 function MouseEvent(ev) {
