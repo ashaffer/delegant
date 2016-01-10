@@ -10,6 +10,7 @@
     "postpublish": "rm -rf lib"
   },
   "dependencies": {
+    "@f/dom-events": "^1.0.0",
     "compose-function": "^2.0.0",
     "ev-store": "^7.0.0",
     "inherits": "^2.0.1"

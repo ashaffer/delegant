@@ -5,18 +5,7 @@
 import EvStore from 'ev-store'
 import compose from 'compose-function'
 import ProxyEvent from './proxy-event'
-
- /**
-  * Events
-  */
-
-const events = [
-  "blur", "change", "click",  "contextmenu", "dblclick",
-  "error","focus", "focusin", "focusout", "input", "keydown",
-  "keypress", "keyup", "load", "mousedown", "mouseup",
-  "resize", "select", "submit", "touchcancel",
-  "touchend", "touchstart", "unload"
-]
+import events from '@f/dom-events'
 
 /**
  * Delegator
