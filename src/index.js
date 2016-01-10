@@ -2,10 +2,10 @@
  * Imports
  */
 
-import EvStore from 'ev-store'
-import compose from 'compose-function'
 import ProxyEvent from './proxy-event'
 import events from '@f/dom-events'
+import compose from '@f/compose'
+import EvStore from 'ev-store'
 
 /**
  * Delegator
