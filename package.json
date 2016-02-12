@@ -2,7 +2,7 @@
   "name": "delegant",
   "description": "Delegate DOM events and optionally wrap their handlers",
   "repository": "git://github.com/ashaffer/delegant.git",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
