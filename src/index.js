@@ -4,6 +4,7 @@
 
 import ProxyEvent from './proxy-event'
 import events from '@f/dom-events'
+import forEach from '@f/foreach'
 import compose from '@f/compose'
 import EvStore from 'ev-store'
 
@@ -31,15 +32,34 @@ function delegant (rootNode, fn = v => v) {
     if (handler) {
       const event = new ProxyEvent(e)
       event.currentTarget = target
-      fn(handler(event))
+
+      'function' === typeof handler
+        ? fn(handler(event))
+        : forEach(handler => fn(handler(event)), handler)
+
       if (event._stopPropagation || event._stopImmediatePropagation) {
         return
       }
     }
 
-    if (target.parentNode && target.parentNode !== rootNode) {
+    if (target.parentNode && target !== rootNode) {
       bubble(name, target.parentNode, e)
     }
+  }
+}
+
+function delegateGlobal (node, fn) {
+  const store = EvStore(node)
+  return compose(...events.map(bind))
+
+  function bind (name) {
+    const handler = listener(name)
+    node.addEventListener(name, handler, true)
+    return () => node.removeEventListener(name, handler, true)
+  }
+
+  function listener (name) {
+    return e => forEach(handle => fn(handle(e)), store[name])
   }
 }
 
@@ -48,3 +68,6 @@ function delegant (rootNode, fn = v => v) {
  */
 
 export default delegant
+export {
+  delegateGlobal
+}

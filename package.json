@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@f/compose": "^0.1.1",
-    "@f/dom-events": "^1.0.0",
+    "@f/dom-events": "^1.0.4",
+    "@f/foreach": "^1.2.2",
     "compose-function": "^2.0.0",
     "ev-store": "^7.0.0",
     "inherits": "^2.0.1"
