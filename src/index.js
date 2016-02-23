@@ -7,13 +7,14 @@ import events from '@f/dom-events'
 import forEach from '@f/foreach'
 import compose from '@f/compose'
 import EvStore from 'ev-store'
+import map from '@f/map-array'
 
 /**
  * Delegator
  */
 
 function delegant (rootNode, fn = v => v) {
-  return compose(...events.map(bind))
+  return compose(...map(bind, events))
 
   function bind (name) {
     const handler = listener(name)
@@ -50,7 +51,7 @@ function delegant (rootNode, fn = v => v) {
 
 function delegateGlobal (node, fn) {
   const store = EvStore(node)
-  return compose(...events.map(bind))
+  return compose(...map(bind, events))
 
   function bind (name) {
     const handler = listener(name)
