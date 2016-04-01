@@ -43,7 +43,7 @@ function delegant (rootNode, fn = v => v) {
       }
     }
 
-    if (target.parentNode && target !== rootNode) {
+    if (target.parentNode && target !== rootNode && e.bubbles) {
       bubble(name, target.parentNode, e)
     }
   }
