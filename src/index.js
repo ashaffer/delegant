@@ -35,8 +35,8 @@ function delegant (rootNode, fn = v => v) {
       event.currentTarget = target
 
       'function' === typeof handler
-        ? fn(handler(event))
-        : forEach(handler => fn(handler(event)), handler)
+        ? fn(handler, event)
+        : forEach(handler => fn(handler, event), handler)
 
       if (event._stopPropagation || event._stopImmediatePropagation) {
         return
@@ -60,7 +60,7 @@ function delegateGlobal (node, fn) {
   }
 
   function listener (name) {
-    return e => forEach(handle => fn(handle(e)), store[name])
+    return e => forEach(handle => fn(handle, e), store[name])
   }
 }
 
